@@ -27,8 +27,3 @@ const num = 12345;
 const k = -3;
 
 rotateNumberByK(num, k);
-
-//remove nth element as given an array?
-//count unique values in an array?
-//take all the zeros to the right of the array?
-//find two numbers pairs that equal to N if this exist return true else false
