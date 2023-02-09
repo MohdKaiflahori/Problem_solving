@@ -1,3 +1,5 @@
+let num = 12345;
+let k = -5;
 function numberOfDigit(num) {
   let digit = 0;
   while (num > 0) {
@@ -6,24 +8,25 @@ function numberOfDigit(num) {
   }
   return digit;
 }
-
-function rotateNumberByK(num, k) {
+function rotation(num) {
   const digit = numberOfDigit(num);
-
-  k = ((k % digit) + digit) % digit;
-
-  let left_no = Math.floor(num / Math.floor(Math.pow(10, digit - k)));
-  console.log(left_no);
-  num = num % Math.floor(Math.pow(10, digit - k));
-  console.log(num);
-  let left_digit = numberOfDigit(left_no);
-  console.log(left_digit);
-  num = num * Math.floor(Math.pow(10, left_digit)) + left_no;
-
-  console.log(num);
+  k=k%digit;
+  if(k<0){
+    k=k+digit;
+  }
+  let div = 1;
+  let multi = 1;
+  for (let i = 1; i <= digit; i++) {
+    if (i <= k) {
+      div *= 10;
+    } else {
+      multi *= 10;
+    }
+  }
+  let q = Math.floor(num / div);
+  let r = Math.floor(num % div);
+  let res;
+  res = r * multi + q;
+  console.log(res);
 }
-
-const num = 12345;
-const k = -3;
-
-rotateNumberByK(num, k);
+rotation(num);
