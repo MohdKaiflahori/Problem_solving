@@ -19,5 +19,5 @@ function maxSum1(arr, k) {
   return minSum;
 }
 const arr = [1, 1, 1, 0, 2, 0];
-const k = 3;
+const k = 2;
 console.log(maxSum1(arr, k));

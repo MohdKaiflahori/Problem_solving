@@ -1,25 +1,18 @@
-const arr = [1, 2, 15, 4, 5, 6, 3];
-const k = 15;
-function subSortArray(arr, k) {
-  let count = 0;
-  let unique = [];
-  const len = arr.length;
+const findSubArray = function (arr, k) {
   arr.sort((a, b) => a - b);
-  for (let i = 0; i < len; i++) {
-    if(arr[i]<k){
-      count++;
-      unique.push(arr[i]);
+
+  let count = 0;
+  let multiply = 1;
+
+  for (let i = 0, j = 0; j < arr.length; j++) {
+    multiply *= arr[j];
+    while (multiply >= k) {
+      multiply /= arr[i++];
     }
+    count += j - i + 1;
   }
-  let temp=1;
-  for(let i = 0 ; i<len ; i++){
-    if(temp*=arr[i]<k){
-      i++;
-      count++;
-      unique.push(arr[i]*arr[i+1]);
-    }
-  }
-  console.log(unique);
-  console.log(count);
-}
-subSortArray(arr, k);
+  return count;
+};
+const arr = [1, 2, 3, 4, 5, 6, 15];
+const k = 15;
+console.log(findSubArray(arr, k));

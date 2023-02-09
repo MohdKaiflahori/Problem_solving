@@ -1,4 +1,4 @@
-const arr = [1,1,1,2,5,1];
+const arr = [1,1,18,2,51,1];
 const k = 3;
 // this function give sum of three consecutive element
 function maxSum1(arr, k) {
