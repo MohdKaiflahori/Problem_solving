@@ -15,9 +15,9 @@ function longestSubstring(str) {
   for (let i = 0; i < str.length; i++) {
     // Take current character from string
     let char = str[next];
-    // If current character is already present in map
+    // If current character is already present in obj
     if (seen[char]) {
-      // Check if start index is greater than current character's last index
+      // Check if start index is less than current character's last index
       if (start < seen[char]) {
         start = seen[char];
       }
@@ -26,15 +26,7 @@ function longestSubstring(str) {
     // If new substring is longer than older
     if (longest < next - start + 1) {
       longest = next - start + 1;
-      // let index = 0;
-      // longestStr = str.slice(start, next + 1);
       longestStr = userSlice(str,start, next);
-      //this for loop store value of str.charAt in a variable
-      // for (let i = 0; i < longest; i++) {
-      //   if (longestStr.charAt(next) !== str.charAt(next)){
-      //     longestStr += str.charAt(next);
-      //   }
-      // }
     }
     // Update current characters index
     seen[char] = next + 1;
@@ -44,4 +36,4 @@ function longestSubstring(str) {
   console.log(longest, "longest");
   console.log(longestStr);
 }
-longestSubstring("habilelabs");
+longestSubstring("geeksforgeeks");
