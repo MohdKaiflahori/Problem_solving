@@ -1,7 +1,7 @@
-let array1 = [10, 20, 50, 40, 60];
-let number = 50;
+let array1 = [10, 30, 50, 40, 60];
+let number = 30;
 //This function is return the array after removing nth Element
-function removeElement(array1) {
+function removeElement(array1, number) {
   array1.sort((a, b) => a - b);
   let len = array1.length;
   //number must be positive
@@ -30,4 +30,4 @@ function removeElement(array1) {
     console.log("arrays element must be greater then Zero ");
   }
 }
-removeElement(array1);
+removeElement(array1 , number);
