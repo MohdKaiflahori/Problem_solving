@@ -1,35 +1,17 @@
-const arr = [1, 1, 2, 2, 3, 4, 4, 5, 4];
-arr.sort((a, b) => a - b);
-// const newArr = [];
-let index = 0;
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] !== arr[i +1]) {
-    arr[index] = arr[i];
-    index++;
+const arr = [1, 2, 3, 3, 4, 5, 2, 6, 3, 6, 1];
+function removeDuplicate(arr) {
+  let index = 0;
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      obj[arr[i]] = 1;
+      arr[i] = arr[i];
+      index++;
+    }
   }
+  console.log(arr.length);
+  console.log(index);
+  arr.length = arr.length - index + 1;
+  return arr;
 }
-arr.length = index;
-console.log(arr);
-
-// const {
-//   a: {
-//     b: [
-//       {
-//         c: [{ d }],
-//       },
-//     ],
-//   },
-// } = {
-//   a: {
-//     b: [
-//       {
-//         c: [
-//           {
-//             d: "hello",
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// };
-// console.log(d);
+console.log(removeDuplicate(arr));
